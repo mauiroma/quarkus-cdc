@@ -1,0 +1,12 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: cdc-http-route
+spec:
+  to:
+    kind: Service
+    name: cdc-http-bridge-bridge-service
+    weight: 100
+  port:
+    targetPort: rest-api
+  wildcardPolicy: None

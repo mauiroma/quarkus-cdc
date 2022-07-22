@@ -1,0 +1,17 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  labels:
+    strimzi.io/cluster: debezium-kafka
+  name: cdc-connector-postgres
+spec:
+  class: io.debezium.connector.postgresql.PostgresConnector
+  config:
+    database.dbname: cdc
+    database.hostname: postgresql
+    database.password: dbpassword
+    database.port: 5432
+    database.server.name: cdc
+    database.user: postgres
+    plugin.name: pgoutput
+  tasksMax: 1
