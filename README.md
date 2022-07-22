@@ -2,6 +2,7 @@
 
 This project is a quick sample to demostrate how to implements Change Data Capture with AMQ Streams (Kafka) and Debezium
 
+![image info](./Diagram.png)
 
 ## Artifacts
  - [ocp_resources](ocp_resources/README.md) manifest used to create Kafka objects

@@ -2,6 +2,12 @@
 
 This project uses Quarkus with camel extension in order to consume messages from Kafka Topic emitted by Debezium, transform those messages into other JSON using AtlasMap, and finally send them to another Kafka Topic  
 
+The application consist in two camel route:
+- Fromcdc.public.known_fruits2fruits   
+  Read messages from Topic public.known_fruits
+- Fromfruits   
+  Read messages from Topic fruits
+
 
 ## Packaging and deploy the application
 ### using maven
