@@ -15,7 +15,6 @@ In order to verify that topic `cdc.public.known_fruits` exists
 ```
 oc rsh cdc-amq-streams-kafka-0 
 ./bin/kafka-topics.sh --list --bootstrap-server=localhost:9092
-./bin/kafka-consumer-groups.sh --bootstrap-server=localhost:9092 --describe --group=ceq-cdc
 ```
 In order to verify that consumer group `ceq-cdc` exists and is associated to topic `cdc.public.known_fruits` and `fruits`
 ```
@@ -50,7 +49,7 @@ curl -X POST $ROUTE/consumers/cdc-group/instances/cdc-http-consumer/subscription
   -H 'content-type: application/vnd.kafka.v2+json' \
   -d '{
     "topics": [
-        "fruit"
+        "fruits"
     ]
 }'
 
