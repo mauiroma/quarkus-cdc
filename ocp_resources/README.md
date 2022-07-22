@@ -24,14 +24,14 @@ oc rsh cdc-amq-streams-kafka-0
 
 
 
-# HTTP Bridge
+## HTTP Bridge
 Optionally you can configure Kafka Bridge in order to consume messages via `curl`
 ```
 oc apply -f 05_KafkaBridge.yaml
 oc apply -f 06_RouteKafkaBridge.yaml
 ```
 
-## Create Consumer
+### Create Consumer
 export ROUTE=http://cdc-http-route-cdc.apps.playground.rhocplab.com/
 
 curl -X POST $ROUTE/consumers/cdc-group \
@@ -44,7 +44,7 @@ curl -X POST $ROUTE/consumers/cdc-group \
   }'
 
 
-# Subscribe Consumer
+### Subscribe Consumer
 curl -X POST $ROUTE/consumers/cdc-group/instances/cdc-http-consumer/subscription \
   -H 'content-type: application/vnd.kafka.v2+json' \
   -d '{
@@ -53,9 +53,9 @@ curl -X POST $ROUTE/consumers/cdc-group/instances/cdc-http-consumer/subscription
     ]
 }'
 
-# Consuming
+### Consuming
 curl $ROUTE/consumers/cdc-group/instances/cdc-http-consumer/records \
   -H 'accept: application/vnd.kafka.json.v2+json'
 
-# Delete Consumer
+### Delete Consumer
 curl -X DELETE $ROUTE/consumers/cdc-group/instances/cdc-http-consumer
